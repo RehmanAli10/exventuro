@@ -32,8 +32,8 @@ export default function HeroSection() {
             Adventures
           </h1>
           <p className="text-lg md:text-xl max-w-xl mx-auto mb-8">
-            Exventuro offers immersive journeys through Canada's breathtaking
-            landscapes
+            Exventuro offers immersive journeys through Canada&apos;s
+            breathtaking landscapes
           </p>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-full font-medium shadow-lg hover:shadow-xl transition-all"
+            className="cursor-pointer px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-full font-medium shadow-lg hover:shadow-xl transition-all"
           >
             Explore Adventures
           </motion.button>
@@ -127,7 +127,7 @@ export default function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-transparent border-2 border-white rounded-full font-medium hover:bg-white/10 transition-all"
+            className="cursor-pointer px-8 py-3 bg-transparent border-2 border-white rounded-full font-medium hover:bg-white/10 transition-all"
           >
             Customize Your Trip
           </motion.button>

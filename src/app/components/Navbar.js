@@ -15,7 +15,7 @@ export default function Navbar({ onContactClick }) {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/aboutUs" },
+    { label: "About", href: "/about" },
     { label: "Services", href: "#", isDropdown: true },
     { label: "Upcoming Packages", href: "/packages" },
   ];

@@ -77,12 +77,12 @@ const ContactModal = ({ isOpen, onClose }) => {
             <div>
               <h2 className="text-2xl font-bold text-gray-800">Get in Touch</h2>
               <p className="text-sm text-gray-500 mt-1">
-                We'll get back to you as soon as possible
+                We&apos;ll get back to you as soon as possible
               </p>
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 text-2xl transition-colors"
+              className="cursor-pointer text-gray-400 hover:text-gray-600 text-2xl transition-colors"
               aria-label="Close"
             >
               &times;
@@ -175,14 +175,14 @@ const ContactModal = ({ isOpen, onClose }) => {
               <button
                 type="button"
                 onClick={onClose}
-                className="px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
+                className="cursor-pointer px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`px-5 py-2.5 text-sm font-medium text-white rounded-xl transition-all ${
+                className={`cursor-pointer px-5 py-2.5 text-sm font-medium text-white rounded-xl transition-all ${
                   isSubmitting
                     ? "bg-blue-400 cursor-not-allowed"
                     : "bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 shadow-md hover:shadow-lg"
