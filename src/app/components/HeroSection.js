@@ -20,11 +20,11 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-20 text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Discover Intimate Adventures
+          Personalized Wilderness Adventures
         </h1>
         <p className="text-lg md:text-xl max-w-xl mx-auto">
-          Exventuro offers slow-paced, immersive journeys through Canada&apos;s
-          breathtaking national parks.
+          Exventuro offers immersive journeys through Canada&apos;s breathtaking
+          national parks at your pace.
         </p>
       </div>
     </section>
