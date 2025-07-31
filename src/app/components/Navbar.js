@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
-export default function Navbar() {
+export default function Navbar({ onContactClick }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
@@ -86,14 +86,21 @@ export default function Navbar() {
           </nav>
 
           {/* Get in Touch Button */}
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <Link
               href="/contact"
               className=" bg-[#0055B8] hover:bg-blue-500 text-white px-6 py-2 rounded-lg transition-colors duration-300"
+              onClick={onContactClick}
             >
               Get in Touch
             </Link>
-          </div>
+          </div> */}
+          <button
+            onClick={onContactClick}
+            className="bg-[#0055B8] hover:bg-blue-500 cursor-pointer text-white px-6 py-2 rounded-lg transition-colors duration-300"
+          >
+            Get in Touch
+          </button>
 
           {/* Mobile Hamburger */}
           <div className="md:hidden">
@@ -119,12 +126,22 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
+          {/* <Link
             href="/contact"
             className="block bg-[#2E5E4E] text-white text-center px-4 py-2 rounded"
           >
             Get in Touch
-          </Link>
+          </Link> */}
+
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              onContactClick();
+            }}
+            className="block w-full bg-[#2E5E4E] text-white text-center px-4 py-2 rounded"
+          >
+            Get in Touch
+          </button>
         </div>
       )}
     </header>
