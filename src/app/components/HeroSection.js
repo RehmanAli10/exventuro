@@ -23,7 +23,7 @@ export default function HeroSection() {
           Discover Intimate Adventures
         </h1>
         <p className="text-lg md:text-xl max-w-xl mx-auto">
-          Exventuro offers slow-paced, immersive journeys through Canada’s
+          Exventuro offers slow-paced, immersive journeys through Canada&apos;s
           breathtaking national parks.
         </p>
       </div>
