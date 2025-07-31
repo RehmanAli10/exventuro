@@ -1,20 +1,39 @@
+"use client";
+
+import { useState } from "react";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import ServicesSection from "./components/ServicesSection";
 import SightseeingSection from "./components/SightseeingSection";
+import ContactModal from "./components/ContactModal";
 
-// import Navbar from "@/app/components/Navbar";
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <main className="min-h-screen bg-black text-black overflow-x-hidden">
-      <Navbar />
-      {/* heroSection */}
-      <HeroSection />
-      <ServicesSection />
-      <SightseeingSection />
-      {/* footer */}
-      <Footer />
-    </main>
+    <>
+      {/* Navbar */}
+      <Navbar onContactClick={handleModalOpen} />
+
+      {/* Page content */}
+      <main className={`min-h-screen text-black overflow-x-hidden`}>
+        <HeroSection />
+        <ServicesSection />
+        <SightseeingSection />
+        <Footer />
+      </main>
+
+      {/* Contact Modal*/}
+      <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
+    </>
   );
 }
