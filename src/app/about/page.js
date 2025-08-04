@@ -25,7 +25,9 @@ export default function About() {
         <Footer />
       </main>
 
-      <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
+      {isModalOpen && (
+        <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
+      )}
     </>
   );
 }

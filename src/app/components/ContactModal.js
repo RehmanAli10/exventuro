@@ -6,6 +6,7 @@ import { submitForm } from "../lib/submitForm";
 import { useRef, useState, useEffect } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import DatePicker from "react-datepicker";
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -17,7 +18,12 @@ const ContactModal = ({ isOpen, onClose }) => {
     formState: { errors, isSubmitting },
     reset,
     control,
+    watch,
   } = useForm();
+
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
   useEffect(() => {
     return () => {
@@ -30,6 +36,12 @@ const ContactModal = ({ isOpen, onClose }) => {
       // Clear any existing timeouts
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
+      if (new Date(data.travelEndDate) < new Date(data.travelStartDate)) {
+        setErrorMessage("End date must be after start date");
+        timeoutRef.current = setTimeout(() => setErrorMessage(null), 5000);
+        return;
+      }
+
       const result = await submitForm(data);
 
       if (!result.valid) {
@@ -41,12 +53,12 @@ const ContactModal = ({ isOpen, onClose }) => {
       // Show success state
       setIsSuccess(true);
 
-      // Close modal after 2 seconds
-      timeoutRef.current = setTimeout(() => {
-        reset();
-        onClose();
-        setIsSuccess(false);
-      }, 4000);
+      // Close modal after 4 seconds
+      // timeoutRef.current = setTimeout(() => {
+      //   reset();
+      //   onClose();
+      //   setIsSuccess(false);
+      // }, 4000);
     } catch (error) {
       setErrorMessage("Failed to submit form");
       timeoutRef.current = setTimeout(() => setErrorMessage(null), 5000);
@@ -327,6 +339,120 @@ const ContactModal = ({ isOpen, onClose }) => {
                     </p>
                   )}
                 </div>
+
+                {/* NEW: Travel Dates Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Travel Start Date <span className="text-red-500">*</span>
+                    </label>
+                    <Controller
+                      name="travelStartDate"
+                      control={control}
+                      rules={{ required: "Start date is required" }}
+                      render={({ field }) => (
+                        <DatePicker
+                          selected={field.value}
+                          onChange={(date) => field.onChange(date)}
+                          minDate={today}
+                          dateFormat="MM/dd/yyyy"
+                          placeholderText="Select start date"
+                          className={`w-full px-4 py-3 rounded-xl border ${
+                            errors.travelStartDate
+                              ? "border-red-500"
+                              : "border-gray-300"
+                          } text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all`}
+                        />
+                      )}
+                    />
+                    {errors.travelStartDate && (
+                      <p className="mt-1 text-sm text-red-500">
+                        {errors.travelStartDate.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Travel End Date <span className="text-red-500">*</span>
+                    </label>
+                    <Controller
+                      name="travelEndDate"
+                      control={control}
+                      rules={{ required: "End date is required" }}
+                      render={({ field }) => {
+                        const startDate = watch("travelStartDate") || tomorrow;
+                        return (
+                          <DatePicker
+                            selected={field.value}
+                            onChange={(date) => field.onChange(date)}
+                            minDate={startDate}
+                            dateFormat="MM/dd/yyyy"
+                            placeholderText="Select end date"
+                            className={`w-full px-4 py-3 rounded-xl border ${
+                              errors.travelEndDate
+                                ? "border-red-500"
+                                : "border-gray-300"
+                            } text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all`}
+                          />
+                        );
+                      }}
+                    />
+                    {errors.travelEndDate && (
+                      <p className="mt-1 text-sm text-red-500">
+                        {errors.travelEndDate.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* NEW: Trip Type Selection */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Trip Type <span className="text-red-500">*</span>
+                  </label>
+                  <div className="space-y-2">
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="package"
+                        value="package"
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                        {...register("tripType", {
+                          required: "Please select a trip type",
+                        })}
+                      />
+                      <label
+                        htmlFor="package"
+                        className="ml-3 text-sm text-gray-700"
+                      >
+                        Planned Itinerary Package
+                      </label>
+                    </div>
+
+                    <div className="flex items-center">
+                      <input
+                        type="radio"
+                        id="custom"
+                        value="custom"
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                        {...register("tripType")}
+                      />
+                      <label
+                        htmlFor="custom"
+                        className="ml-3 text-sm text-gray-700"
+                      >
+                        Custom Trip
+                      </label>
+                    </div>
+                  </div>
+                  {errors.tripType && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors.tripType.message}
+                    </p>
+                  )}
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Message
