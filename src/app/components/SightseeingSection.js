@@ -105,7 +105,6 @@ import Image from "next/image";
 const SightseeingSection = () => {
   return (
     <section className="bg-gradient-to-b from-white to-blue-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-12 sm:py-16 md:py-20 space-y-16 md:space-y-20 lg:space-y-24 relative overflow-hidden">
-      {/* Decorative elements - adjusted positioning for mobile */}
       <div className="absolute -top-16 -right-16 sm:-top-20 sm:-right-20 w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-blue-100/30 blur-3xl"></div>
       <div className="absolute bottom-8 left-0 w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-blue-200/20 blur-3xl"></div>
 
@@ -181,8 +180,6 @@ const SightseeingSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Right Image - adjusted for mobile */}
         <div className="lg:w-1/2 flex justify-center relative w-full mt-8 lg:mt-0">
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md h-[300px] sm:h-[380px] md:h-[420px] lg:h-[480px] overflow-hidden rounded-t-full rounded-b-3xl shadow-xl md:shadow-2xl border-4 sm:border-6 md:border-8 border-white">
             <div className="absolute inset-0 bg-gradient-to-t from-[#0055B8]/20 to-transparent z-10 pointer-events-none"></div>
@@ -195,7 +192,6 @@ const SightseeingSection = () => {
             />
           </div>
 
-          {/* Tag - hidden on mobile, visible on lg+ */}
           <div className="absolute -right-8 sm:-right-10 bottom-16 md:bottom-20 transform rotate-0 origin-right text-white font-bold text-sm sm:text-base md:text-lg tracking-widest hidden lg:block bg-[#0055B8] px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full shadow-lg animate-pulse">
             <span className="flex items-center gap-1 sm:gap-2">
               <svg
@@ -216,7 +212,6 @@ const SightseeingSection = () => {
         </div>
       </div>
 
-      {/* Bottom Promotion Banners - adjusted for mobile */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 max-w-6xl mx-auto relative z-10">
         {[
           {
