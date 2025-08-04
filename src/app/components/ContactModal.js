@@ -228,7 +228,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                   transition={{ delay: 0.6 }}
                   className="text-gray-600"
                 >
-                  We've received your message and will get back to you soon.
+                  We&apos;ve received your message and will get back to you soon.
                 </motion.p>
                 <motion.div
                   initial={{ width: 0 }}

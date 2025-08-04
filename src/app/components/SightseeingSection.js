@@ -119,15 +119,15 @@ const SightseeingSection = () => {
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 md:mb-6">
-            Discover Canada's{" "}
+            Discover Canada&apos;s{" "}
             <span className="text-[#0055B8]">Breathtaking</span>
             <br className="hidden sm:inline" />
             Sightseeing Adventures
           </h2>
 
           <p className="text-gray-600 text-base md:text-lg mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">
-            Immerse yourself in Canada's natural wonders and urban marvels. Our
-            curated tours blend iconic landmarks with hidden gems for
+            Immerse yourself in Canada&apos;s natural wonders and urban marvels.
+            Our curated tours blend iconic landmarks with hidden gems for
             unforgettable experiences.
           </p>
 

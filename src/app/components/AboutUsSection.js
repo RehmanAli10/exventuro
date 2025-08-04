@@ -34,7 +34,7 @@ export default function AboutUsSection() {
         </p>
         <p className="text-md sm:text-lg text-gray-600 max-w-3xl mx-auto">
           Exventuro was born out of a simple idea: adventures should feel
-          personal, unforgettable, and a little bit wild. We're a team of
+          personal, unforgettable, and a little bit wild. We&apos;re a team of
           passionate explorers, nature-lovers, and storytellers who believe that
           the best memories are made off the beaten path (and sometimes on it,
           with a bear or two watching from afar).
@@ -94,16 +94,18 @@ export default function AboutUsSection() {
           <p className="text-gray-600">
             We create intimate, immersive tours that connect you to the land,
             the culture, and your inner explorer. From jaw-dropping national
-            parks to hidden gems you won't find on Google Maps, every Exventuro
-            trip is crafted to give you a deep, local, and real experience.
+            parks to hidden gems you won&apos;t find on Google Maps, every
+            Exventuro trip is crafted to give you a deep, local, and real
+            experience.
           </p>
           <div className="p-4 bg-[#F4F8FB] rounded-xl border-l-4 border-[#0055B8]">
             <p className="text-gray-600 italic">
-              "Raw nature. Real connections. Ridiculously good memories."
+              &quot;Raw nature. Real connections. Ridiculously good
+              memories.&quot;
             </p>
           </div>
           <p className="text-[#0055B8] font-semibold text-lg">
-            Say yes to adventure — because life's too short for “maybe next
+            Say yes to adventure — because life&apos;s too short for “maybe next
             summer.”
           </p>
         </motion.div>
@@ -157,7 +159,7 @@ export default function AboutUsSection() {
             </h3>
           </div>
           <p className="text-gray-600">
-            Our commitment to the planet doesn't stop at admiring it — we
+            Our commitment to the planet doesn&apos;t stop at admiring it — we
             protect it. All our tours use fuel-efficient, low-emission vehicles,
             and wherever possible, we partner with hybrid and electric transport
             providers.
@@ -195,15 +197,15 @@ export default function AboutUsSection() {
             </h3>
           </div>
           <p className="text-gray-600">
-            If you're the kind of traveler who watches David Attenborough
+            If you&apos;re the kind of traveler who watches David Attenborough
             documentaries for fun, we got you. On our glacier tours, we bring
             photo comparisons showing just how fast these icy giants are
             retreating.
           </p>
           <p className="text-gray-600">
-            You'll walk the trails, feel the cold air, and see the climate shift
-            with your own eyes. It's part adventure, part reality check — and
-            all unforgettable.
+            You&apos;ll walk the trails, feel the cold air, and see the climate
+            shift with your own eyes. It&apos;s part adventure, part reality
+            check — and all unforgettable.
           </p>
           <div className="mt-4">
             <button className="bg-[#FF6B00] hover:bg-[#FF8500] text-white px-6 py-3 rounded-full font-medium transition-all flex items-center gap-2">
