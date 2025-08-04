@@ -33,7 +33,9 @@ export default function Home() {
       </main>
 
       {/* Contact Modal*/}
-      <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
+      {isModalOpen && (
+        <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
+      )}
     </>
   );
 }
