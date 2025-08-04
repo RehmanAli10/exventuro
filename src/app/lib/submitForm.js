@@ -9,6 +9,7 @@ export async function submitForm(data) {
     const result = await response.json();
 
     if (!response.ok) {
+      const result = await response.json();
       return {
         valid: false,
         message: result.message || "Validation failed",

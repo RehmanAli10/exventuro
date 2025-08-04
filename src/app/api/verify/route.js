@@ -3,11 +3,12 @@ const accessKey = "67fd230786fc9f9ed9c97e76fbec1c26";
 
 export async function POST(request) {
   const body = await request.json();
-  // sending request to numverify
 
+  // sending request to numverify
   const url = `http://apilayer.net/api/validate?access_key=${accessKey}&number=${body.phone}`;
 
   const response = await fetch(url);
+
   const data = await response.json();
 
   if (data.valid) {
