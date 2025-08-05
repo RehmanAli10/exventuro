@@ -19,7 +19,7 @@ export default function Navbar({ onContactClick }) {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "#", isDropdown: true },
-    { label: "Upcoming Packages", href: "/packages" },
+    { label: "Ongoing Packages", href: "/packages" },
   ];
 
   useEffect(() => {
@@ -32,7 +32,6 @@ export default function Navbar({ onContactClick }) {
         setIsMobileMenuOpen(false);
       }
     };
-
 
     document.addEventListener("click", handleClickOutside, { passive: true });
     return () => document.removeEventListener("click", handleClickOutside);
