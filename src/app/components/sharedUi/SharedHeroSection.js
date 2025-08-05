@@ -28,10 +28,17 @@ const zoomIn = {
   },
 };
 
-const AboutHeroSection = () => {
+const HeroSection = ({
+  imageSrc,
+  mainHeading,
+  highlightedText,
+  highlightColor = "text-blue-400",
+  gradientFrom = "from-blue-400",
+  gradientTo = "to-cyan-300",
+}) => {
   return (
     <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background with zoom effect */}
+      {/* Background */}
       <motion.div
         className="absolute inset-0 z-0"
         variants={zoomIn}
@@ -39,8 +46,8 @@ const AboutHeroSection = () => {
         animate="visible"
       >
         <Image
-          src="/images/about-hero.jpg"
-          alt="Adventure landscape"
+          src={imageSrc}
+          alt="Hero background"
           fill
           className="object-cover"
           priority
@@ -62,15 +69,18 @@ const AboutHeroSection = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white"
           variants={fadeIn}
         >
-          About <span className="text-blue-400">Us</span>
+          {mainHeading}{" "}
+          <span className={highlightColor}>{highlightedText}</span>
         </motion.h1>
 
         <motion.div variants={fadeIn}>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-300 mx-auto rounded-full" />
+          <div
+            className={`w-20 h-1 bg-gradient-to-r ${gradientFrom} ${gradientTo} mx-auto rounded-full`}
+          />
         </motion.div>
       </motion.div>
     </section>
   );
 };
 
-export default AboutHeroSection;
+export default HeroSection;
