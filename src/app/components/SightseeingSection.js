@@ -104,7 +104,14 @@ import Image from "next/image";
 
 const SightseeingSection = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-blue-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-12 sm:py-16 md:py-20 space-y-16 md:space-y-20 lg:space-y-24 relative overflow-hidden">
+    // <section className="bg-gradient-to-b from-white to-blue-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-12 sm:py-16 md:py-20 space-y-16 md:space-y-20 lg:space-y-24 relative overflow-hidden">
+    <section
+      className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 py-12 sm:py-16 md:py-20 space-y-16 md:space-y-20 lg:space-y-24 relative overflow-hidden bg-white"
+      style={{
+        backgroundImage: "linear-gradient(to bottom, white, #f0f9ff)",
+        WebkitBackgroundImage: "-webkit-linear-gradient(top, white, #f0f9ff)",
+      }}
+    >
       <div className="absolute -top-16 -right-16 sm:-top-20 sm:-right-20 w-56 h-56 sm:w-72 sm:h-72 rounded-full bg-blue-100/30 blur-3xl"></div>
       <div className="absolute bottom-8 left-0 w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-blue-200/20 blur-3xl"></div>
 

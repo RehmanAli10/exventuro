@@ -258,14 +258,19 @@ const ServicesSection = () => {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="mt-16"
         >
-          <button
-            className="bg-gradient-to-r from-[#0055B8] to-[#0085FF] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            style={{
-              WebkitBackgroundImage:
-                "linear-gradient(to right, #0055B8, #0085FF)",
-            }}
-          >
-            Explore All Services
+          <button className="text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+            {/* Gradient background with proper iOS support */}
+            <span
+              className="absolute inset-0 bg-[#0055B8]"
+              style={{
+                backgroundImage: "linear-gradient(to right, #0055B8, #0085FF)",
+                WebkitBackgroundImage:
+                  "-webkit-linear-gradient(left, #0055B8, #0085FF)",
+              }}
+            ></span>
+
+            {/* Button text */}
+            <span className="relative z-10">Explore All Services</span>
           </button>
         </motion.div>
       </div>
