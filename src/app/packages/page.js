@@ -1,24 +1,12 @@
-"use client";
-import { useState } from "react";
 import SharedHeroSection from "../components/sharedUi/SharedHeroSection";
-import ContactModal from "../components/ContactModal";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import PackagesSection from "../components/PackagesSection";
+import NavbarWrapper from "../components/NavbarWrapper";
 
 export default function Packages() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
   return (
     <>
-      <Navbar onContactClick={handleModalOpen} />
+      <NavbarWrapper />
       <main className={`min-h-screen text-black overflow-x-hidden`}>
         <SharedHeroSection
           imageSrc="/images/packages-hero.jpg"
@@ -28,10 +16,6 @@ export default function Packages() {
         <PackagesSection />
         <Footer />
       </main>
-
-      {isModalOpen && (
-        <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
-      )}
     </>
   );
 }

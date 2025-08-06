@@ -1,24 +1,12 @@
-"use client";
-import { useState } from "react";
 import SharedHeroSection from "../components/sharedUi/SharedHeroSection";
 import AboutUsSection from "../components/AboutUsSection";
-import ContactModal from "../components/ContactModal";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import NavbarWrapper from "../components/NavbarWrapper";
 
 export default function About() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
   return (
     <>
-      <Navbar onContactClick={handleModalOpen} />
+      <NavbarWrapper />
       <main className={`min-h-screen text-black overflow-x-hidden`}>
         <SharedHeroSection
           imageSrc="/images/about-hero.jpg"
@@ -28,10 +16,6 @@ export default function About() {
         <AboutUsSection />
         <Footer />
       </main>
-
-      {isModalOpen && (
-        <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
-      )}
     </>
   );
 }
