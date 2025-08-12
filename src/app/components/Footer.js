@@ -31,12 +31,12 @@ const Footer = () => {
             >
               <InstagramIcon className="hover:scale-110 transition" />
             </a>
-            <a href="#" aria-label="Twitter">
+            {/* <a href="#" aria-label="Twitter">
               <TwitterIcon className="hover:scale-110 transition" />
-            </a>
-            <a href="#" aria-label="Facebook">
+            </a> */}
+            {/* <a href="#" aria-label="Facebook">
               <FacebookIcon className="hover:scale-110 transition" />
-            </a>
+            </a> */}
           </div>
         </div>
 
