@@ -18,7 +18,7 @@ export default function Navbar({ onContactClick }) {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Services", href: "#", isDropdown: true },
+    { label: "Services", href: "/services", isDropdown: true },
     { label: "Ongoing Packages", href: "/packages" },
   ];
 
@@ -58,17 +58,18 @@ export default function Navbar({ onContactClick }) {
             {navLinks.map((link, idx) =>
               link.isDropdown ? (
                 <div key={idx} className="relative group">
-                  <button
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  <Link
+                    href="/services"
+                    // onClick={() => setIsServicesOpen(!isServicesOpen)}
                     className="cursor-pointer group inline-flex items-center gap-1 relative"
                   >
                     Services
-                    <ChevronDownIcon className="h-4 w-4 mt-1 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" />
+                    {/* <ChevronDownIcon className="h-4 w-4 mt-1 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0" /> */}
                     <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-blue-500 transition-all duration-300 group-hover:w-full" />
-                  </button>
+                  </Link>
 
                   {/* Dropdown Menu */}
-                  {isServicesOpen && (
+                  {/* {isServicesOpen && (
                     <div
                       className="absolute mt-2 bg-grey backdrop-blur-md text-white border border-white/20 rounded shadow-lg w-30"
                       onMouseLeave={() => setIsServicesOpen(false)}
@@ -88,7 +89,7 @@ export default function Navbar({ onContactClick }) {
                         Camping
                       </Link>
                     </div>
-                  )}
+                  )} */}
                 </div>
               ) : (
                 <Link
