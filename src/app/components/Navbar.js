@@ -45,7 +45,8 @@ export default function Navbar({ onContactClick }) {
   // Handle services dropdown toggle
   const toggleServicesDropdown = (e) => {
     e.preventDefault();
-    setIsServicesOpen(!isServicesOpen);
+    e.stopPropagation(); // ⬅️ This stops the outside click listener from firing
+    setIsServicesOpen((prev) => !prev);
   };
 
   return (
@@ -130,6 +131,7 @@ export default function Navbar({ onContactClick }) {
                 <div className="space-y-2">
                   <button
                     onClick={toggleServicesDropdown}
+                    onTouchStart={toggleServicesDropdown}
                     className="flex items-center justify-between w-full py-2 hover:text-blue-500 transition-colors"
                   >
                     <span>Services</span>
