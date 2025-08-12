@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="space-y-4">
           <h2 className="text-xl font-bold text-gray-800 flex items-center">
             Exventuro
-            <span className="ml-2 -mt-2 text-xl text-blue-500">↗</span>
+            {/* <span className="ml-2 -mt-2 text-xl text-blue-500">↗</span> */}
           </h2>
           <p>Exventuro helps plan and manage your tours easily.</p>
           <div className="flex space-x-4 text-blue-500 text-lg">
