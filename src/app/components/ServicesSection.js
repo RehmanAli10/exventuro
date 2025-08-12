@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { services } from "../data/services";
+import Link from "next/link";
 
 const ServicesSection = () => {
   const container = {
@@ -72,15 +73,18 @@ const ServicesSection = () => {
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold text-gray-800 group-hover:text-black mb-3 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-gray-800 group-hover:text-gray-400 mb-3 transition-colors duration-300">
                 {service.title}
               </h3>
 
-              <p className="text-gray-600 group-hover:text-black leading-relaxed transition-colors duration-300 mb-6">
+              <p className="text-gray-600 group-hover:text-gray-400 leading-relaxed transition-colors duration-300 mb-6">
                 {service.description}
               </p>
 
-              <button className="text-sm font-medium text-[#0055B8] flex items-center justify-center mx-auto transition-colors duration-300 group relative">
+              <Link
+                href={service.link}
+                className="text-sm font-medium text-[#0055B8] group-hover:text-gray-400 flex items-center justify-center mx-auto transition-colors duration-300 relative"
+              >
                 Learn more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +101,7 @@ const ServicesSection = () => {
                   />
                 </svg>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-              </button>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -110,10 +114,13 @@ const ServicesSection = () => {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="mt-16"
         >
-          <button className="text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+          <Link
+            href="/services"
+            className="inline-block text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden"
+          >
             {/* Gradient background with proper iOS support */}
             <span
-              className="absolute inset-0 bg-[#0055B8]"
+              className="absolute inset-0"
               style={{
                 backgroundImage: "linear-gradient(to right, #0055B8, #0085FF)",
                 WebkitBackgroundImage:
@@ -122,8 +129,24 @@ const ServicesSection = () => {
             ></span>
 
             {/* Button text */}
-            <span className="relative z-10">Explore All Services</span>
-          </button>
+            <span className="relative z-10 flex items-center justify-center">
+              Explore All Services
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </span>
+          </Link>
         </motion.div>
       </div>
     </section>
