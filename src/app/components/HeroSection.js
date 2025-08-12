@@ -116,7 +116,7 @@ export default function HeroSection() {
           transition={{ delay: 0.9, duration: 0.8 }}
           className="flex flex-col sm:flex-row justify-center gap-4"
         >
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="cursor-pointer px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all bg-[#2563eb]"
@@ -127,7 +127,7 @@ export default function HeroSection() {
             }}
           >
             <span className="relative text-white">Explore Adventures</span>
-          </motion.button>
+          </motion.button> */}
 
           <motion.button
             whileHover={{ scale: 1.05 }}
