@@ -25,15 +25,18 @@ const Footer = () => {
           </h2>
           <p>Exventuro helps plan and manage your tours easily.</p>
           <div className="flex space-x-4 text-blue-500 text-lg">
-            <a href="#" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/exventuro?igsh=MXFuazQwNDlyazV5aQ=="
+              aria-label="Instagram"
+            >
               <InstagramIcon className="hover:scale-110 transition" />
             </a>
-            <a href="#" aria-label="Twitter">
+            {/* <a href="#" aria-label="Twitter">
               <TwitterIcon className="hover:scale-110 transition" />
-            </a>
-            <a href="#" aria-label="Facebook">
+            </a> */}
+            {/* <a href="#" aria-label="Facebook">
               <FacebookIcon className="hover:scale-110 transition" />
-            </a>
+            </a> */}
           </div>
         </div>
 
