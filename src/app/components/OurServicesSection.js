@@ -41,7 +41,7 @@ export default function OurServicesSection() {
           Not Just Tours, Trusted Journeys Through the Rockies
         </p>
         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          At Exventuro, we don't believe in cookie-cutter sightseeing. We
+          At Exventuro, we don&apos;t believe in cookie-cutter sightseeing. We
           believe in experiences crafted with heart, honesty, and a deep respect
           for your time and wonder.
         </p>
@@ -159,15 +159,15 @@ export default function OurServicesSection() {
             </h3>
           </div>
           <p className="text-gray-600 mb-4">
-            At Exventuro, camping isn't just a place to sleep - it's an
-            immersion into the wild beauty of the Rockies. We handle everything
-            so you can focus on the moments that matter.
+            At Exventuro, camping isn&apos;t just a place to sleep - it&apos;s
+            an immersion into the wild beauty of the Rockies. We handle
+            everything so you can focus on the moments that matter.
           </p>
           <div className="bg-[#F5F0FA] p-4 rounded-xl">
             <p className="text-gray-700 font-medium">
-              We'll set up your campsite, guide you to stunning hidden spots,
-              and share the best trails, lakes, and stargazing locations away
-              from the crowds.
+              We&apos;ll set up your campsite, guide you to stunning hidden
+              spots, and share the best trails, lakes, and stargazing locations
+              away from the crowds.
             </p>
           </div>
           <div className="mt-4 p-4 bg-[#E6F7FF] rounded-xl">
@@ -200,14 +200,14 @@ export default function OurServicesSection() {
 
         <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
           <p className="text-xl text-gray-700 mb-6">
-            Because you're not just booking a ride. You're trusting someone with
-            your time. And we take that seriously.
+            Because you&apos;re not just booking a ride. You&apos;re trusting
+            someone with your time. And we take that seriously.
           </p>
 
           <div className="relative inline-block">
             <p className="text-lg text-gray-600 italic max-w-2xl mx-auto relative z-10">
-              We're not the biggest tour company, and we don't want to be. We
-              just want to be the most honest, most passionate, and most
+              We&apos;re not the biggest tour company, and we don&apos;t want to
+              be. We just want to be the most honest, most passionate, and most
               memorable part of your adventure.
             </p>
             <div className="absolute -bottom-2 right-0 w-24 h-1 bg-[#00A651] rounded-full z-0"></div>
