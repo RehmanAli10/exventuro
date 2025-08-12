@@ -198,23 +198,35 @@ export default function PackagesSection() {
                       <span className="relative z-10">Book Now</span>
                       <div className="absolute inset-0 bg-gradient-to-r from-[#0085FF] to-[#00aaff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </motion.button> */}
-
                     <motion.button
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all
-             bg-gradient-to-r from-[#0055B8] to-[#0085FF]
-             group-hover:from-[#0085FF] group-hover:to-[#00aaff]
-             [background-size:200%] [background-position:0%_50%]
-             hover:[background-position:100%_50%]
-             -webkit-appearance-none"
-                      style={{
-                        WebkitTapHighlightColor: "transparent",
-                        backgroundImage:
-                          "linear-gradient(to right, #0055B8, #0085FF)",
-                      }}
+                      className="cursor-pointer w-full text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all relative overflow-hidden"
                     >
-                      Book Now
+                      <div
+                        className="absolute inset-0 z-0"
+                        style={{
+                          background: "#0055B8",
+                          backgroundImage:
+                            "linear-gradient(to right, #0055B8, #0085FF)",
+                          WebkitBackgroundImage:
+                            "-webkit-linear-gradient(left, #0055B8, #0085FF)",
+                        }}
+                      />
+
+                      <div
+                        className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{
+                          background: "#0085FF",
+                          backgroundImage:
+                            "linear-gradient(to right, #0085FF, #00aaff)",
+                          WebkitBackgroundImage:
+                            "-webkit-linear-gradient(left, #0085FF, #00aaff)",
+                        }}
+                      />
+
+                      {/* Button text */}
+                      <span className="relative z-10">Book Now</span>
                     </motion.button>
                   </div>
                 </div>
