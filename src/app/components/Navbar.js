@@ -126,7 +126,7 @@ export default function Navbar({ onContactClick }) {
         >
           {navLinks.map((link) => (
             <div key={link.href} className="relative">
-              {link.isDropdown ? (
+              {/* {link.isDropdown ? (
                 <div className="space-y-2">
                   <button
                     onClick={toggleServicesDropdown}
@@ -138,9 +138,8 @@ export default function Navbar({ onContactClick }) {
                         isServicesOpen ? "rotate-180" : ""
                       }`}
                     />
-                  </button>
-
-                  {isServicesOpen && (
+                  </button> */}
+              {/* {isServicesOpen && (
                     <div className="pl-4 space-y-2 border-l-2 border-blue-200 ml-2">
                       <Link
                         href="/services/trekking"
@@ -157,17 +156,18 @@ export default function Navbar({ onContactClick }) {
                         Camping
                       </Link>
                     </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  href={link.href}
-                  className="block py-2 hover:text-blue-500 transition-colors"
-                  onClick={handleMobileLinkClick}
-                >
-                  {link.label}
-                </Link>
-              )}
+                  )} */}
+              {/* </div> */}
+              {/* ) :  */}
+              {/* ( */}
+              <Link
+                href={link.href}
+                className="block py-2 hover:text-blue-500 transition-colors"
+                onClick={handleMobileLinkClick}
+              >
+                {link.label}
+              </Link>
+              {/* )} */}
             </div>
           ))}
           <button
