@@ -1,3 +1,4 @@
+import FloatingButton from "./components/FloatingButton";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import NavbarWrapper from "./components/NavbarWrapper";
@@ -21,6 +22,8 @@ export default function Home() {
         <SightseeingSection />
         <Footer />
       </main>
+
+      <FloatingButton />
     </>
   );
 }

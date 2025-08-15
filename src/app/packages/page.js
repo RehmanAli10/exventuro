@@ -2,6 +2,7 @@ import SharedHeroSection from "../components/sharedUi/SharedHeroSection";
 import Footer from "../components/Footer";
 import PackagesSection from "../components/PackagesSection";
 import NavbarWrapper from "../components/NavbarWrapper";
+import FloatingButton from "../components/FloatingButton";
 
 export default function Packages() {
   return (
@@ -16,6 +17,7 @@ export default function Packages() {
         <PackagesSection />
         <Footer />
       </main>
+      <FloatingButton />
     </>
   );
 }

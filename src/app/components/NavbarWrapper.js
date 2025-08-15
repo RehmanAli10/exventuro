@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import ContactModal from "./ContactModal";
+
 import Navbar from "./Navbar";
+import Modal from "./Modal";
+import ContactForm from "./Forms/ContactForm";
 
 function NavbarWrapper() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +21,15 @@ function NavbarWrapper() {
       <Navbar onContactClick={handleModalOpen} />
 
       {isModalOpen && (
-        <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
+        <Modal
+          isOpen={handleModalOpen}
+          onClose={handleModalClose}
+          isShowModalHeader={true}
+          heading="Get in Touch"
+          subheading="We'll get back to you as soon as possible"
+        >
+          <ContactForm onClose={handleModalClose} />
+        </Modal>
       )}
     </>
   );

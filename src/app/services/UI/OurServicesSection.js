@@ -8,7 +8,7 @@ import {
   FaStar,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { FloatingParticles } from "./FloatingParticles";
+import { FloatingParticles } from "../../components/FloatingParticles";
 
 export default function OurServicesSection() {
   return (
