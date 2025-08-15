@@ -1,7 +1,8 @@
 import SharedHeroSection from "../components/sharedUi/SharedHeroSection";
-import AboutUsSection from "../components/AboutUsSection";
+import AboutUsSection from "./UI/AboutUsSection";
 import Footer from "../components/Footer";
 import NavbarWrapper from "../components/NavbarWrapper";
+import FloatingButton from "../components/FloatingButton";
 
 export default function About() {
   return (
@@ -16,6 +17,7 @@ export default function About() {
         <AboutUsSection />
         <Footer />
       </main>
+      <FloatingButton />
     </>
   );
 }

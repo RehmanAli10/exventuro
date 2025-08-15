@@ -1,7 +1,8 @@
 import Footer from "../components/Footer";
 import NavbarWrapper from "../components/NavbarWrapper";
-import OurServicesSection from "../components/OurServicesSection";
+import OurServicesSection from "./UI/OurServicesSection";
 import SharedHeroSection from "../components/sharedUi/SharedHeroSection";
+import FloatingButton from "../components/FloatingButton";
 
 function page() {
   return (
@@ -16,6 +17,8 @@ function page() {
         <OurServicesSection />
         <Footer />
       </main>
+
+      <FloatingButton />
     </>
   );
 }
