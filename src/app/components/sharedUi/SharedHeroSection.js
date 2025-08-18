@@ -37,7 +37,7 @@ const HeroSection = ({
   gradientTo = "to-cyan-300",
 }) => {
   return (
-    <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[30vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background */}
       <motion.div
         className="absolute inset-0 z-0"

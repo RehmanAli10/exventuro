@@ -25,3 +25,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Apply gray placeholder to all inputs, textareas and datepickers */
+input::placeholder,
+textarea::placeholder {
+  color: #808080;
+  opacity: 1;
+}
+
+/* react-phone-input-2 overrides */
+.react-tel-input input::placeholder {
+  color: #808080;
+  opacity: 1;
+}
+
+/* react-datepicker overrides */
+.react-datepicker__input-container input::placeholder {
+  color: #808080;
+  opacity: 1;
+}

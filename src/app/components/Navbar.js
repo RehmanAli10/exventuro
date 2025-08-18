@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import {
-  ChevronDownIcon,
   Bars3Icon as MenuIcon,
   XMarkIcon as XIcon,
 } from "@heroicons/react/24/outline";
@@ -11,7 +10,6 @@ import Image from "next/image";
 
 export default function Navbar({ onContactClick }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
 
@@ -33,20 +31,23 @@ export default function Navbar({ onContactClick }) {
       }
     };
 
-    document.addEventListener("click", handleClickOutside, { passive: true });
-    return () => document.removeEventListener("click", handleClickOutside);
+    const handleScroll = () => {
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    document.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("scroll", handleScroll);
+    };
   }, [isMobileMenuOpen]);
 
-  // Close mobile menu when navigating
   const handleMobileLinkClick = () => {
     setIsMobileMenuOpen(false);
-  };
-
-  // Handle services dropdown toggle
-  const toggleServicesDropdown = (e) => {
-    e.preventDefault();
-    e.stopPropagation(); // ⬅️ This stops the outside click listener from firing
-    setIsServicesOpen((prev) => !prev);
   };
 
   return (
@@ -91,7 +92,7 @@ export default function Navbar({ onContactClick }) {
             )}
           </nav>
 
-          {/* Get in Touch Button - Desktop Only */}
+          {/* Get in Touch - Desktop button */}
           <div className="hidden md:block">
             <button
               onClick={onContactClick}
@@ -123,45 +124,10 @@ export default function Navbar({ onContactClick }) {
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
-          className="md:hidden fixed right-4 bg-white text-black w-60 px-6 py-4 space-y-4 z-50 shadow-lg rounded-lg animate-fade-in"
+          className="md:hidden fixed right-4 top-20 bg-white text-black w-60 px-6 py-4 space-y-4 z-50 shadow-lg rounded-lg animate-fade-in"
         >
           {navLinks.map((link) => (
             <div key={link.href} className="relative">
-              {/* {link.isDropdown ? (
-                <div className="space-y-2">
-                  <button
-                    onClick={toggleServicesDropdown}
-                    onTouchStart={toggleServicesDropdown}
-                    className="flex items-center justify-between w-full py-2 hover:text-blue-500 transition-colors"
-                  >
-                    <span>Services</span>
-                    <ChevronDownIcon
-                      className={`w-4 h-4 transition-transform ${
-                        isServicesOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button> */}
-              {/* {isServicesOpen && (
-                    <div className="pl-4 space-y-2 border-l-2 border-blue-200 ml-2">
-                      <Link
-                        href="/services/trekking"
-                        className="block py-1 hover:text-blue-500 transition-colors"
-                        onClick={handleMobileLinkClick}
-                      >
-                        Trekking
-                      </Link>
-                      <Link
-                        href="/services/camping"
-                        className="block py-1 hover:text-blue-500 transition-colors"
-                        onClick={handleMobileLinkClick}
-                      >
-                        Camping
-                      </Link>
-                    </div>
-                  )} */}
-              {/* </div> */}
-              {/* ) :  */}
-              {/* ( */}
               <Link
                 href={link.href}
                 className="block py-2 hover:text-blue-500 transition-colors"
@@ -169,7 +135,6 @@ export default function Navbar({ onContactClick }) {
               >
                 {link.label}
               </Link>
-              {/* )} */}
             </div>
           ))}
           <button

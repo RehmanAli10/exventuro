@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FacebookIcon, InstagramIcon, TwitterIcon } from "lucide-react";
+import { InstagramIcon } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -21,7 +21,6 @@ const Footer = () => {
         <div className="space-y-4">
           <h2 className="text-xl font-bold text-gray-800 flex items-center">
             Exventuro
-            {/* <span className="ml-2 -mt-2 text-xl text-blue-500">↗</span> */}
           </h2>
           <p>Exventuro helps plan and manage your tours easily.</p>
           <div className="flex space-x-4 text-blue-500 text-lg">
@@ -31,12 +30,6 @@ const Footer = () => {
             >
               <InstagramIcon className="hover:scale-110 transition" />
             </a>
-            {/* <a href="#" aria-label="Twitter">
-              <TwitterIcon className="hover:scale-110 transition" />
-            </a> */}
-            {/* <a href="#" aria-label="Facebook">
-              <FacebookIcon className="hover:scale-110 transition" />
-            </a> */}
           </div>
         </div>
 
@@ -45,17 +38,21 @@ const Footer = () => {
           <h3 className="font-semibold text-gray-800">Company</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="#" className="hover:text-blue-500">
+              <Link href="/about" className="hover:text-blue-500">
                 About Us
               </Link>
             </li>
-            <li>
+            {/* temporarily removed: to be added later */}
+            {/* <li>
               <Link href="#" className="hover:text-blue-500">
                 Blog
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link href="#" className="hover:text-blue-500">
+              <Link
+                href="https://wa.me/14038351646"
+                className="hover:text-blue-500"
+              >
                 Contact Us
               </Link>
             </li>

@@ -1,7 +1,7 @@
 import FloatingButton from "./components/FloatingButton";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
-import NavbarWrapper from "./components/NavbarWrapper";
+import NavbarWrapper from "../app/components/NavbarWrapper";
 import dynamic from "next/dynamic";
 
 const ServicesSection = dynamic(() => import("./components/ServicesSection"));

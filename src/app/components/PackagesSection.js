@@ -52,15 +52,16 @@ export default function PackagesSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          {/* <motion.div
-            className="inline-flex items-center justify-center bg-gradient-to-r from-[#0085FF] to-[#0055B8] text-white tracking-wide font-semibold mb-4 uppercase px-4 py-1.5 rounded-full text-xs shadow-lg"
-            whileHover={{ scale: 1.05 }}
-          >
-            <span className="h-2 w-2 bg-white rounded-full mr-2"></span>
-            Premium Experiences
-          </motion.div> */}
           <motion.div
-            className="inline-flex items-center justify-center bg-gradient-to-r from-sky-500 to-blue-700 text-white tracking-wide font-semibold mb-4 uppercase px-4 py-1.5 rounded-full text-xs shadow-lg"
+            className="inline-flex items-center justify-center 
+             bg-gradient-to-r from-sky-500 to-blue-700 
+             text-white tracking-wide font-semibold 
+             mb-4 uppercase px-4 py-1.5 rounded-full text-xs 
+             shadow-lg bg-clip-padding"
+            style={{
+              WebkitBackgroundClip: "padding-box",
+              WebkitTextFillColor: "inherit",
+            }}
             whileHover={{ scale: 1.05 }}
           >
             <span className="h-2 w-2 bg-white rounded-full mr-2"></span>

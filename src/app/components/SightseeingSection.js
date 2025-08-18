@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 const SightseeingSection = () => {
@@ -36,25 +37,27 @@ const SightseeingSection = () => {
           </p>
 
           <div className="flex justify-center lg:justify-start">
-            <button className="relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-3.5 overflow-hidden font-bold text-white rounded-full group cursor-pointer text-sm sm:text-base">
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#0055B8] to-[#00A1FF] group-hover:from-[#00A1FF] group-hover:to-[#0055B8] transition-all duration-500 ease-out"></span>
-              <span className="absolute top-0 right-0 w-10 h-10 -mt-2 -mr-10 sm:w-12 sm:h-12 sm:-mt-3 sm:-mr-12 transition-all duration-1000 transform translate-x-12 sm:translate-x-16 rotate-12 bg-white opacity-10 group-hover:-translate-x-60 sm:group-hover:-translate-x-72 ease"></span>
-              <span className="relative flex items-center gap-1 sm:gap-2">
-                Explore Packages
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 sm:h-5 sm:w-5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-            </button>
+            <Link href="/packages">
+              <button className="relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-3.5 overflow-hidden font-bold text-white rounded-full group cursor-pointer text-sm sm:text-base">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#0055B8] to-[#00A1FF] group-hover:from-[#00A1FF] group-hover:to-[#0055B8] transition-all duration-500 ease-out"></span>
+                <span className="absolute top-0 right-0 w-10 h-10 -mt-2 -mr-10 sm:w-12 sm:h-12 sm:-mt-3 sm:-mr-12 transition-all duration-1000 transform translate-x-12 sm:translate-x-16 rotate-12 bg-white opacity-10 group-hover:-translate-x-60 sm:group-hover:-translate-x-72 ease"></span>
+                <span className="relative flex items-center gap-1 sm:gap-2">
+                  Explore Packages
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </Link>
           </div>
 
           {/* Thumbnail Cards - adjusted for mobile */}
@@ -147,7 +150,7 @@ const SightseeingSection = () => {
               <p className="opacity-80 text-sm sm:text-base mb-2 sm:mb-3 md:mb-4">
                 {banner.desc}
               </p>
-              <button className="text-blue-100 font-medium text-sm sm:text-base flex items-center gap-1 sm:gap-2 group-hover:text-white transition-colors">
+              {/* <button className="text-blue-100 font-medium text-sm sm:text-base flex items-center gap-1 sm:gap-2 group-hover:text-white transition-colors">
                 Discover Tours
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +166,7 @@ const SightseeingSection = () => {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </button>
+              </button> */}
             </div>
           </div>
         ))}
