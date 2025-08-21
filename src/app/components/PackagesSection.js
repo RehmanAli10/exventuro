@@ -6,7 +6,7 @@ import { packages } from "../data/packages";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { FloatingParticles } from "./FloatingParticles";
 
-export default function PackagesSection() {
+export default function PackagesSection({ handleBooking }) {
   return (
     <section
       className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
@@ -203,6 +203,7 @@ export default function PackagesSection() {
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
                       className="cursor-pointer w-full text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all relative overflow-hidden"
+                      onClick={() => handleBooking(pkg)}
                     >
                       <div
                         className="absolute inset-0 z-0"
