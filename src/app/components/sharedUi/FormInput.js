@@ -13,6 +13,7 @@ const FormInput = ({
   placeholder,
   isTextArea = false,
   children,
+  isDisable = false,
 }) => {
   const error = errors?.[name];
 
@@ -62,6 +63,7 @@ const FormInput = ({
             error ? "border-red-500" : "border-gray-500"
           } placeholder-gray-500 text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all`}
           {...(register ? register(name, rules) : {})}
+          disabled={isDisable}
         />
       )}
 
