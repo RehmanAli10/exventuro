@@ -64,16 +64,16 @@ const Footer = () => {
           <h3 className="font-semibold text-gray-800">Destinations</h3>
           <ul className="space-y-2">
             <li>
-              <p>Ontario</p>
+              <p>British Colombia</p>
             </li>
             <li>
-              <p>Niagara-on-the-Lake</p>
+              <p>Banff national park</p>
             </li>
             <li>
-              <p>Montreal</p>
+              <p>Saskatchewan</p>
             </li>
             <li>
-              <p>Toronto</p>
+              <p>Edmonton</p>
             </li>
           </ul>
         </div>
