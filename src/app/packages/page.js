@@ -13,8 +13,6 @@ export default function Packages() {
   const [packageDetails, setPackageDetails] = useState(null);
 
   function handleBooking(pckg) {
-    console.log(pckg);
-
     if (Object.entries(pckg).length === 0) return;
     setIsOpen(true);
     setPackageDetails(pckg);
