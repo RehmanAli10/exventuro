@@ -13,7 +13,7 @@ export async function POST(request) {
   const data = await response.json();
 
   // sending email to user
-  sendEmailToUser(body);
+  await sendEmailToUser(body);
 
   // sending email to admin
   setTimeout(() => sendEmailToAdmin(body), 1200);

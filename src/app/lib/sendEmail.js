@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import EmailTemplateUser from "../components/EmailTemplates/EmailTemplateUser";
 import EmailTemplateAdmin from "../components/EmailTemplates/EmailTemplateAdmin";
 
-const resend = new Resend("re_h5iCwrxA_NPuvJVZNGy7LZkEksqo6i4Q8");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmailToUser(userDetails) {
   const isBookingEmail =
