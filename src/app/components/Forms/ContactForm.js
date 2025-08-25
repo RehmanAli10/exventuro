@@ -14,8 +14,6 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [toast, setToast] = useState(null);
 
-  console.log("packageDetails", packageDetails);
-
   const {
     register,
     handleSubmit,
@@ -42,6 +40,10 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
           message: "End date must be after start date",
         });
         return;
+      }
+
+      if (data.passengers && packageDetails.price) {
+        data.price = packageDetails.price[data.passengers];
       }
 
       const result = await submitForm(data);
@@ -168,7 +170,8 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
                     errors={errors}
                     isDisable={true}
                     placeholder={packageDetails.title}
-                    rules={{ required: true }}
+                    value={packageDetails.title}
+                    // rules={{ required: true }}
                   />
 
                   <FormInput
