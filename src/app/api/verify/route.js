@@ -1,11 +1,9 @@
-import { sendEmailToUser } from "@/app/lib/sendEmail";
+import { sendEmailToAdmin, sendEmailToUser } from "@/app/lib/sendEmail";
 import { NextResponse } from "next/server";
 const accessKey = "67fd230786fc9f9ed9c97e76fbec1c26";
 
 export async function POST(request) {
   const body = await request.json();
-
-  console.log("body in route", body);
 
   // sending request to numverify
   const url = `http://apilayer.net/api/validate?access_key=${accessKey}&number=${body.phone}`;
@@ -16,6 +14,9 @@ export async function POST(request) {
 
   // sending email to user
   sendEmailToUser(body);
+
+  // sending email to admin
+  setTimeout(() => sendEmailToAdmin(body), 1200);
 
   if (data.valid) {
     return NextResponse.json({
