@@ -1,5 +1,4 @@
 export async function submitForm(data) {
-  console.log("data in sumbit form", data);
   try {
     const response = await fetch("/api/verify", {
       method: "POST",
