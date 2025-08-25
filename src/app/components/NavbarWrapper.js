@@ -22,7 +22,7 @@ function NavbarWrapper() {
 
       {isModalOpen && (
         <Modal
-          isOpen={handleModalOpen}
+          isOpen={isModalOpen}
           onClose={handleModalClose}
           isShowModalHeader={true}
           heading="Get in Touch"
