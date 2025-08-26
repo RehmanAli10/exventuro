@@ -80,18 +80,64 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
           {isSuccess ? (
             <motion.div
               key="success"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="text-center py-6"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+              className="flex flex-col items-center justify-center min-h-[300px] text-center"
             >
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 150 }}
+                className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"
+              >
+                <svg
+                  className="w-10 h-10 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <motion.path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  />
+                </svg>
+              </motion.div>
+
+              <motion.h3
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3"
+              >
                 Message Sent!
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                We&apos;ve received your message and will get back to you soon.
-              </p>
+              </motion.h3>
+
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+                className="text-base sm:text-lg text-gray-600 max-w-md mx-auto mb-8"
+              >
+                We have received your message and will get back to you soon.
+              </motion.p>
+
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 0.5 }}
+                onClick={onClose}
+                className="px-6 py-2 text-base font-medium text-white rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors"
+              >
+                Close
+              </motion.button>
             </motion.div>
           ) : (
             <motion.form
@@ -102,6 +148,7 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-4"
             >
+              {/* Form content remains the same */}
               <FormInput
                 label="Name"
                 name="name"
