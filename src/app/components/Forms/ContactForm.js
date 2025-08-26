@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { submitForm } from "@/app/lib/submitForm";
 import ToastMessage from "../ToastMessage";
 import FormInput from "@/app/components/sharedUi/FormInput";
@@ -124,45 +125,40 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
                 }}
                 errors={errors}
               />
-              <FormInput
-                label="Phone Number"
-                name="phone"
-                control={control}
-                rules={{ required: "Phone number is required" }}
-                errors={errors}
-              >
-                <PhoneInput
-                  country={"ca"}
-                  inputProps={{ name: "phone", required: true }}
-                  inputStyle={{
-                    width: "100%",
-                    height: "3rem",
-                    borderRadius: "0.75rem",
-                    color: "#808080",
-                  }}
-                  buttonStyle={{ backgroundColor: "white" }}
-                  placeholder="Enter your phone number"
-                  placeholderTextColor="#808080"
+
+              <div className="space-y-1">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <Controller
+                  name="phone"
+                  control={control}
+                  rules={{ required: "Phone number is required" }}
+                  render={({ field }) => (
+                    <PhoneInput
+                      {...field}
+                      country={"ca"}
+                      inputProps={{ name: "phone", required: true }}
+                      inputStyle={{
+                        width: "100%",
+                        height: "3rem",
+                        borderRadius: "0.75rem",
+                        color: "#808080",
+                      }}
+                      buttonStyle={{ backgroundColor: "white" }}
+                      placeholder="Enter your phone number"
+                    />
+                  )}
                 />
-              </FormInput>
+                {errors.phone && (
+                  <p className="text-xs text-red-500 mt-1">
+                    {errors.phone.message}
+                  </p>
+                )}
+              </div>
 
               {Object.keys(packageDetails).length > 0 && (
                 <div className="space-y-4">
-                  {/* <FormInput
-                    label="Package Name"
-                    name="packageName"
-                    register={register}
-                    errors={errors}
-                    isDisable={true}
-                  >
-                    <input
-                      type="text"
-                      value={packageDetails.title}
-                      disabled
-                      className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 bg-gray-100 text-gray-600 cursor-not-allowed"
-                    />
-                  </FormInput> */}
-
                   <FormInput
                     label="Package Name"
                     name="packageName"
@@ -171,27 +167,33 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
                     isDisable={true}
                     placeholder={packageDetails.title}
                     value={packageDetails.title}
-                    // rules={{ required: true }}
                   />
 
-                  <FormInput
-                    label="Select Passengers"
-                    name="passengers"
-                    control={control}
-                    rules={{ required: "Please select passenger group" }}
-                    errors={errors}
-                  >
-                    {(field) => (
-                      <select
-                        {...field}
-                        className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="">Select passengers</option>
-                        <option value="smallGroup">1–3 Passengers</option>
-                        <option value="largeGroup">4–6 Passengers</option>
-                      </select>
+                  <div className="space-y-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700">
+                      Select Passengers <span className="text-red-500">*</span>
+                    </label>
+                    <Controller
+                      name="passengers"
+                      control={control}
+                      rules={{ required: "Please select passenger group" }}
+                      render={({ field }) => (
+                        <select
+                          {...field}
+                          className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="">Select passengers</option>
+                          <option value="smallGroup">1–3 Passengers</option>
+                          <option value="largeGroup">4–6 Passengers</option>
+                        </select>
+                      )}
+                    />
+                    {errors.passengers && (
+                      <p className="text-xs text-red-500 mt-1">
+                        {errors.passengers.message}
+                      </p>
                     )}
-                  </FormInput>
+                  </div>
 
                   {watch("passengers") && (
                     <p className="text-sm font-medium text-gray-700">
@@ -210,74 +212,77 @@ const ContactForm = ({ onClose, formType, packageDetails = {} }) => {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {/* <FormInput
-                  label="Travel Start Date"
-                  name="travelStartDate"
-                  control={control}
-                  rules={{ required: "Start date is required" }}
-                  errors={errors}
-                >
-                  {(field) => (
-                    <DatePicker
-                      selected={field.value || null}
-                      onChange={(date) => field.onChange(date)}
-                      minDate={today}
-                      dateFormat="MM/dd/yyyy"
-                      placeholderText="Select start date"
-                      className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    />
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 relative">
+                <div className="space-y-1">
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700">
+                    Travel Start Date <span className="text-red-500">*</span>
+                  </label>
+                  <Controller
+                    name="travelStartDate"
+                    control={control}
+                    rules={{ required: "Start date is required" }}
+                    render={({ field }) => {
+                      const minSelectable = new Date(
+                        today.getTime() + 15 * 60 * 1000
+                      );
+                      const maxTimeToday = new Date();
+                      maxTimeToday.setHours(23, 59, 59, 999);
+
+                      return (
+                        <DatePicker
+                          selected={field.value}
+                          onChange={field.onChange}
+                          onBlur={field.onBlur}
+                          minDate={today}
+                          minTime={minSelectable}
+                          maxTime={maxTimeToday}
+                          showTimeSelect
+                          timeIntervals={15}
+                          dateFormat="MM/dd/yyyy h:mm aa"
+                          placeholderText="Select start date & time"
+                          className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                          popperClassName="react-datepicker-popper z-50"
+                          popperPlacement="bottom-start"
+                        />
+                      );
+                    }}
+                  />
+                  {errors.travelStartDate && (
+                    <p className="text-xs text-red-500 mt-1">
+                      {errors.travelStartDate.message}
+                    </p>
                   )}
-                </FormInput> */}
-
-                <FormInput
-                  label="Travel Start Date"
-                  name="travelStartDate"
-                  control={control}
-                  rules={{ required: "Start date is required" }}
-                  errors={errors}
-                >
-                  {(field) => {
-                    const minSelectable = new Date(
-                      today.getTime() + 15 * 60 * 1000
-                    );
-
-                    return (
-                      <DatePicker
-                        selected={field.value || null}
-                        onChange={(date) => field.onChange(date)}
-                        minDate={today}
-                        minTime={minSelectable}
-                        maxTime={new Date().setHours(23, 59, 59)}
-                        showTimeSelect
-                        timeIntervals={15}
-                        dateFormat="MM/dd/yyyy h:mm aa"
-                        placeholderText="Select start date & time"
-                        className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      />
-                    );
-                  }}
-                </FormInput>
+                </div>
 
                 {formType !== "booking" && (
-                  <FormInput
-                    label="Travel End Date"
-                    name="travelEndDate"
-                    control={control}
-                    rules={{ required: "End date is required" }}
-                    errors={errors}
-                  >
-                    {(field) => (
-                      <DatePicker
-                        selected={field.value || null}
-                        onChange={(date) => field.onChange(date)}
-                        minDate={watch("travelStartDate") || tomorrow}
-                        dateFormat="MM/dd/yyyy"
-                        placeholderText="Select end date"
-                        className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      />
+                  <div className="space-y-1">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700">
+                      Travel End Date <span className="text-red-500">*</span>
+                    </label>
+                    <Controller
+                      name="travelEndDate"
+                      control={control}
+                      rules={{ required: "End date is required" }}
+                      render={({ field }) => (
+                        <DatePicker
+                          selected={field.value}
+                          onChange={field.onChange}
+                          onBlur={field.onBlur}
+                          minDate={watch("travelStartDate") || tomorrow}
+                          dateFormat="MM/dd/yyyy"
+                          placeholderText="Select end date"
+                          className="w-full px-3 py-2 text-sm sm:text-base rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                          popperClassName="react-datepicker-popper z-50"
+                          popperPlacement="bottom-start"
+                        />
+                      )}
+                    />
+                    {errors.travelEndDate && (
+                      <p className="text-xs text-red-500 mt-1">
+                        {errors.travelEndDate.message}
+                      </p>
                     )}
-                  </FormInput>
+                  </div>
                 )}
               </div>
 
