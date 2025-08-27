@@ -64,16 +64,25 @@ const Footer = () => {
           <h3 className="font-semibold text-gray-800">Destinations</h3>
           <ul className="space-y-2">
             <li>
-              <p>British Colombia</p>
+              <p>Banff National Park</p>
             </li>
             <li>
-              <p>Banff national park</p>
+              <p>Jasper National Park</p>
             </li>
             <li>
-              <p>Saskatchewan</p>
+              <p>Yoho National Park</p>
             </li>
             <li>
-              <p>Edmonton</p>
+              <p>Glacier National Park</p>
+            </li>
+            <li>
+              <p>Waterton National Park</p>
+            </li>
+            <li>
+              <p>Kootenay National Park</p>
+            </li>
+            <li>
+              <p>Mount Robson Provincial Park</p>
             </li>
           </ul>
         </div>
