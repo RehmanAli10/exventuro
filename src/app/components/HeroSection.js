@@ -131,13 +131,13 @@ export default function HeroSection() {
             <span className="relative text-white">Explore Adventures</span>
           </motion.button> */}
 
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="cursor-pointer px-8 py-3 bg-transparent border-2 border-white rounded-full font-medium hover:bg-white/10 transition-all"
           >
             Customize Your Trip
-          </motion.button>
+          </motion.button> */}
         </motion.div>
       </div>
 
