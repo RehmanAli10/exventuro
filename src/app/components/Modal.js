@@ -96,16 +96,33 @@ const Modal = ({
   useEffect(() => {
     if (isOpen) {
       const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = "100%";
-      document.body.style.overflow = "hidden";
+      const body = document.body;
+
+      // Store original styles to revert later
+      const originalStyles = {
+        position: body.style.position,
+        top: body.style.top,
+        width: body.style.width,
+        overflow: body.style.overflow,
+        height: body.style.height,
+      };
+
+      // Apply scroll lock styles
+      body.style.position = "fixed";
+      body.style.top = `-${scrollY}px`;
+      body.style.width = "100%";
+      body.style.overflow = "hidden";
+      body.style.height = "100%";
 
       return () => {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        document.body.style.overflow = "";
+        // Revert to original styles
+        body.style.position = originalStyles.position;
+        body.style.top = originalStyles.top;
+        body.style.width = originalStyles.width;
+        body.style.overflow = originalStyles.overflow;
+        body.style.height = originalStyles.height;
+
+        // Restore scroll position
         window.scrollTo(0, scrollY);
       };
     }
@@ -120,7 +137,12 @@ const Modal = ({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[1000] flex items-center justify-center p-2 sm:p-4"
-        style={{ WebkitOverflowScrolling: "touch" }} // Safari smooth scrolling
+        style={{
+          WebkitOverflowScrolling: "touch",
+          // iOS viewport height fix
+          height: "100vh",
+          height: "-webkit-fill-available",
+        }}
       >
         <motion.div
           initial={{ opacity: 0 }}
@@ -135,9 +157,15 @@ const Modal = ({
           initial={{ scale: 0.9, y: 20, opacity: 0 }}
           animate={{ scale: 1, y: 0, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="relative z-10 w-full max-w-[calc(100vw-1rem)] sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto bg-white rounded-xl shadow-2xl flex flex-col max-h-[calc(100vh-2rem)]"
+          className="relative z-10 w-full max-w-[calc(100vw-1rem)] sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto bg-white rounded-xl shadow-2xl flex flex-col"
           onClick={(e) => e.stopPropagation()}
-          style={{ WebkitTransform: "translateZ(0px)" }} // Force GPU acceleration in Safari
+          style={{
+            maxHeight: "90vh",
+            maxHeight: "-webkit-fill-available",
+            WebkitTransform: "translateZ(0px)",
+            // Prevent elastic scrolling on iOS
+            overflow: "hidden",
+          }}
         >
           {isShowModalHeader && (
             <div className="flex-shrink-0 bg-white z-10 p-4 sm:p-6 border-b border-gray-100">
@@ -152,9 +180,9 @@ const Modal = ({
                 </div>
                 <button
                   onClick={onClose}
-                  className="cursor-pointer text-gray-400 hover:text-gray-600 text-2xl transition-colors"
+                  className="cursor-pointer text-gray-400 hover:text-gray-600 text-2xl transition-colors flex items-center justify-center w-8 h-8"
                   aria-label="Close"
-                  style={{ fontSize: "28px", lineHeight: "1" }} // Ensure consistent close button size
+                  style={{ fontSize: "28px", lineHeight: "1" }}
                 >
                   &times;
                 </button>
@@ -162,11 +190,15 @@ const Modal = ({
             </div>
           )}
 
-          <div className="flex-1 overflow-y-auto">{children}</div>
+          <div
+            className="flex-1 overflow-y-auto"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            {children}
+          </div>
         </motion.div>
       </motion.div>
     </AnimatePresence>
   );
 };
-
 export default Modal;
