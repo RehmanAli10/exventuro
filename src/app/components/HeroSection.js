@@ -21,8 +21,9 @@ export default function HeroSection() {
             src="/images/tourism-boating-lake.png"
             alt="Hero Banner"
             fill
-            className="object-cover"
+            className="object-cover pointer-events-none select-none"
             priority
+            draggable={false}
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 to-purple-900/70" />
@@ -53,8 +54,9 @@ export default function HeroSection() {
           src="/images/tourism-boating-lake.png"
           alt="Hero Banner"
           fill
-          className="object-cover z-0"
+          className="object-cover z-0 pointer-events-none select-none"
           priority
+          draggable={false}
         />
       </motion.div>
 
