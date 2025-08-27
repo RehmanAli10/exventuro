@@ -44,3 +44,16 @@ textarea::placeholder {
   color: #808080;
   opacity: 1;
 }
+
+/* scroll modal */
+/* Improve Safari modal compatibility */
+@supports (-webkit-touch-callout: none) {
+  .modal-container {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Fix for Safari backdrop blur */
+  .backdrop-blur-sm {
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
