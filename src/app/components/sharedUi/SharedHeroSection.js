@@ -66,7 +66,7 @@ const HeroSection = ({
         variants={staggerContainer}
       >
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white mt-15 md:mt-0 "
           variants={fadeIn}
         >
           {mainHeading}{" "}
